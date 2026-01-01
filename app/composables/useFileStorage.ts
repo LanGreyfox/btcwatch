@@ -14,7 +14,8 @@ export const useFileStorage = () => {
     }
 
     return {
-        saveFile
+        saveFile,
+        readFile
     }
 
 }

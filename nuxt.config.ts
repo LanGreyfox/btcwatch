@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
     scheduledTasks: {
       // Läuft jede Minute
-      '* * * * *': ['fetchBtcPriceData']
+      '0 * * * *': ['fetchBtcPriceData']
     },
     storage: {
       'crypto': {
