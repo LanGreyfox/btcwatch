@@ -9,6 +9,12 @@ export default defineNuxtConfig({
     scheduledTasks: {
       // Läuft jede Minute
       '* * * * *': ['fetchBtcPriceData']
+    },
+    storage: {
+      'crypto': {
+        driver: 'fs',
+        base: './data'
+      }
     }
   }
 })
