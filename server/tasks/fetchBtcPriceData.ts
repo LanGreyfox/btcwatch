@@ -1,19 +1,5 @@
 import { useFileStorage } from '../../app/composables/useFileStorage';
 
-const createFilePath = () => {
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const day = String(currentDate.getDate()).padStart(2, '0');
-  const hour = String(currentDate.getHours()).padStart(2, '0');
-
-  const asset = 'BTC';
-  const currency = 'USD';
-  
-  const storageKey = `${asset}:${currency}:${year}:${month}:${day}:${hour}.json`;
-  return storageKey;
-}
-
 export default defineTask({
   meta: {
     name: 'fetchBtcPriceData',
@@ -60,7 +46,7 @@ export default defineTask({
     } else {
       try {
         // Save the fetched data to file storage
-        const { saveFile } = useFileStorage();
+        const { saveFile, createFilePath } = useFileStorage();
         const filename = createFilePath();
         await saveFile(filename, data);
         console.log(`Saved BTC price data to file: ${filename}`);

@@ -12,10 +12,25 @@ export const useFileStorage = () => {
         }
         return null
     }
+    
+    const createFilePath = () => {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const hour = String(currentDate.getHours()).padStart(2, '0');
+
+        const asset = 'BTC';
+        const currency = 'USD';
+        
+        const storageKey = `${asset}:${currency}:${year}:${month}:${day}:${hour}.json`;
+        return storageKey;
+    }
 
     return {
         saveFile,
-        readFile
+        readFile,
+        createFilePath
     }
 
 }
