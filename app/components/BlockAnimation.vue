@@ -3,8 +3,8 @@
     <div class="carousel-wrapper">
       <div class="block">1</div>
       <div class="block">2</div>
-      <div class="block">3</div>
-      <div class="block">4</div>
+      <div class="block unconfirmed"></div>
+      <div class="block unconfirmed"></div>
     </div>
   </div>
 </template>
@@ -16,6 +16,7 @@
   --block-h: 100px;
   --gap: 20px;
   --anim-speed: 3s;
+  --fade-speed: 0.4s;
 
   /* Container shows 3 blocks */
   width: calc((var(--block-w) * 3) + (var(--gap) * 2));
@@ -45,6 +46,10 @@
   font-weight: bold;
   border-radius: 8px;
   flex-shrink: 0; /* avoid, that flexbox shrinks something */
+}
+
+.block.unconfirmed {
+  background: #ffcc009e;
 }
 
 @keyframes slide-seamless {
